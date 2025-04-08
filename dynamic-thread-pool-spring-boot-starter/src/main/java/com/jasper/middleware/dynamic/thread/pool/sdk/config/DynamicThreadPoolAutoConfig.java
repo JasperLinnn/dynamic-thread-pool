@@ -132,7 +132,8 @@ public class DynamicThreadPoolAutoConfig {
 
     @Bean("dynamicThreadPoolTopic")
     public RTopic rTopic(RedissonClient redissonClient, ThreadPoolConfigAdjustListener threadPoolConfigAdjustListener) {
-        RTopic rTopic = redissonClient.getTopic(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey() + "_" + applicationName);
+        String topicName = String.format(RegistryEnumVO.DYNAMIC_THREAD_POOL_REDIS_TOPIC.getKey(), applicationName);
+        RTopic rTopic = redissonClient.getTopic(topicName);
         rTopic.addListener(ThreadPoolConfigEntity.class, threadPoolConfigAdjustListener);
         return rTopic;
     }

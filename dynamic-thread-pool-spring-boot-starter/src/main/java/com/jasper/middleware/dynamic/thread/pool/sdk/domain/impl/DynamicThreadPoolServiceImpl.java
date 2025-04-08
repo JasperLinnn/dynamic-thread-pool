@@ -66,9 +66,8 @@ public class DynamicThreadPoolServiceImpl implements IDynamicThreadPoolService {
         }
         threadPoolExecutor.setCorePoolSize(threadPoolConfigEntity.getCorePoolSize());
         threadPoolExecutor.setMaximumPoolSize(threadPoolConfigEntity.getMaximumPoolSize());
-        if (logger.isDebugEnabled()) {
-            logger.info("动态线程池，配置更新 应用名:{}, 线程池名:{} 池化配置:{}", applicationName, threadPoolConfigEntity.getThreadPoolName(), threadPoolConfigEntity);
-        }
+        logger.info("动态线程池，配置更新 应用名:{}, 线程池名:{} 池化配置:{}", applicationName, threadPoolConfigEntity.getThreadPoolName(), threadPoolConfigEntity);
+
     }
 
     private ThreadPoolConfigEntity initPoolObject(String threadPoolName, ThreadPoolExecutor threadPoolExecutor) {
