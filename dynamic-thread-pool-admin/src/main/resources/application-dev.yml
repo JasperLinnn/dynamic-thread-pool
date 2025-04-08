@@ -1,0 +1,17 @@
+server:
+  port: 8089
+
+redis:
+  sdk:
+    config:
+      host: ${dynamic.thread.pool.admin.redis.host}
+      port: ${dynamic.thread.pool.admin.redis.port}
+      pool-size: ${dynamic.thread.pool.admin.redis.pool-size}
+      min-idle-size: ${dynamic.thread.pool.admin.redis.min-idle-size}
+      idle-timeout: ${dynamic.thread.pool.admin.redis.idle-timeout}
+      connect-timeout: ${dynamic.thread.pool.admin.redis.connect-timeout}
+      retry-attempts: ${dynamic.thread.pool.admin.redis.retry-attempts}
+      retry-interval: ${dynamic.thread.pool.admin.redis.retry-interval}
+      ping-interval: ${dynamic.thread.pool.admin.redis.ping-interval}
+      keep-alive: true
+
